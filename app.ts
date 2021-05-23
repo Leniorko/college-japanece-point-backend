@@ -15,7 +15,17 @@ config();
 //Adding middlewares
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "https://leniorko.github.io/college-japanece-point",
+    ],
+    credentials: true,
+    allowedHeaders:
+      "Origin,X-Requested-With,Content-Type,Accept,content-type,application/json",
+  })
+);
 const PORT = process.env.PORT;
 
 export const databaseConnetction = new DatabaseConnection(
