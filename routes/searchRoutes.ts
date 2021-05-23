@@ -7,15 +7,22 @@ export const searchRouter = Router();
 
 // UNSAFE will find everything that will be passed
 // TODO Create filter for query
-searchRouter.get("/", async (req, res) => {
-  const body: JapanesePointQuery = req.body;
-  console.log(body);
+
+/**
+ * Search for games in database
+ * With empty body returns every game
+ */
+searchRouter.post("/", async (req, res) => {
+  const body = req.body;
+  console.log(req.body);
 
   const result = await databaseConnetction.databaseClient
     .db("japanesePoint")
     .collection("games")
     .find(body)
     .toArray();
+
+  console.log(result);
 
   res.status(200).send(result);
 });

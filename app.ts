@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import { testRoute } from "./routes/testRoute";
 import { config } from "dotenv";
 import { DatabaseConnection } from "./modules/db/DatabaseInit";
@@ -8,8 +9,13 @@ import { deleteRouter } from "./routes/deleteRoutes";
 //Initing .env file
 config();
 
+// Currently enabled CORS from everywhere
+// TODO change it when in prod
+
+//Adding middlewares
 const app = express();
 app.use(express.json());
+app.use(cors());
 const PORT = process.env.PORT;
 
 export const databaseConnetction = new DatabaseConnection(
