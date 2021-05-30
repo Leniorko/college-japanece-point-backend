@@ -14,7 +14,6 @@ export const searchRouter = Router();
  */
 searchRouter.post("/", async (req, res) => {
   const body = req.body;
-  console.log(req.body);
 
   const result = await databaseConnetction.databaseClient
     .db("japanesePoint")

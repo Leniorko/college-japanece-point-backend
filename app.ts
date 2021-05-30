@@ -6,6 +6,7 @@ import { DatabaseConnection } from "./modules/db/DatabaseInit";
 import { searchRouter } from "./routes/searchRoutes";
 import { insertRouter } from "./routes/insertRoutes";
 import { deleteRouter } from "./routes/deleteRoutes";
+import { updateRouter } from "./routes/updateRoutes";
 //Initing .env file
 config();
 
@@ -27,6 +28,7 @@ app.use("/testRoute", testRoute);
 app.use("/api/v1/search", searchRouter);
 app.use("/api/v1/insert", insertRouter);
 app.use("/api/v1/delete", deleteRouter);
+app.use("/api/v1/update", updateRouter);
 
 app.listen(PORT, () => {
   console.log(`⚡️[server]: Server is running at http://localhost:${PORT}`);
