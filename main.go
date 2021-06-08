@@ -1,6 +1,7 @@
 package main
 
 import (
+	"college-japanece-point-backend/db"
 	"log"
 
 	"github.com/joho/godotenv"
@@ -11,4 +12,5 @@ func main() {
 	if envLoadError != nil {
 		log.Fatalln(envLoadError)
 	}
+	db.Init()
 }

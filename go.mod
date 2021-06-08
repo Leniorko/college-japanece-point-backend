@@ -1,4 +1,4 @@
-module github.com/Leniorko/college-japanece-point-backend
+module college-japanece-point-backend
 
 go 1.16
 
