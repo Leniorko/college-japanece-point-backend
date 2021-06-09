@@ -10,7 +10,7 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-func Init() {
+func Init() *mongo.Client {
 
 	ctx, ctxCancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer ctxCancel()
@@ -24,4 +24,8 @@ func Init() {
 	if pingError != nil {
 		log.Fatalf("Error during PING: %v", pingError)
 	}
+
+	log.Default().Println("Sucsessfuly connected to MongoDB!")
+
+	return client
 }
